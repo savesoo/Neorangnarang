@@ -118,20 +118,22 @@ function editComment(){
 }
 
 function makeCommentRow(nickname, content, writedate, commentUserIdx, commentidx, ismine = false) {
-    let editBtn = '<input type="button" value="수정" class="auto-width edit-btn btn btn-outline-secondary btn-sm" onclick="showEditModal('+commentidx+')"/>';
-    let deleteBtn = '<input type="button" value="삭제" class="auto-width delete-btn btn btn-outline-danger btn-sm" onclick="deleteComment('+commentidx+')"/>';
-    let appendTag = '<div class="cmt col-sm-12 p-3" id="row-'+commentidx+'">'
-        +'	<div class="comment-row row">'
-        +'		<div class="col-md-8">'
-        +'			<strong class="auto-width">'+nickname+'</strong>'
-        +'			<small class="auto-width ">'+writedate+'</small>';
+    let editBtn = ' <a class="auto-width edit-btn btn btn-outline-secondary btn-sm" onclick="showEditModal('+commentidx+')">수정</a>';
+    let deleteBtn = '   <a class="auto-width delete-btn btn btn-outline-danger btn-sm" onclick="deleteComment('+commentidx+')">삭제</a>';
+    let appendTag = '<div>'
+        +'  <div class="cmt col-sm-12 p-3" id="row-'+commentidx+'">'
+        +'	    <div class="comment-row row">'
+        +'		    <div class="col-md-8">'
+        +'			    <strong class="auto-width">'+nickname+'</strong>'
+        +'			    <small class="auto-width">'+writedate+'</small>';
     appendTag += ismine ? editBtn : '';
     appendTag += ismine ? deleteBtn : '';
-    appendTag += '		</div>'
-        +'		<div class="col-md-8">'
-        +'			<p class="card-text" >'+content+'</p>'
-        +'		</div>'
-        +'	</div>'
+    appendTag += '	</div>'
+        +'		    <div class="col-md-8">'
+        +'		    	<p class="card-text" >'+content+'</p>'
+        +'		    </div>'
+        +'  	</div>'
+        +'  </div>'
         +'</div>';
     return appendTag;
 }
